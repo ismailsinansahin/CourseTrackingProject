@@ -1,3 +1,9 @@
+insert into batches(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
+                    batch_name, start_date, end_date)
+values('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'EU-2', '2019-01-01', '2019-12-12'),
+      ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'EU-3', '2020-01-01', '2020-12-12'),
+      ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'EU-4', '2021-01-01', '2021-12-12');
+
 insert into mentors(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
 first_name, last_name, email, password, phone, enabled, country, gender, mentor_working_status)
 values('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Alex', 'Ferguson', 'aferguson@mu.com', 'Abc123',
@@ -11,19 +17,23 @@ values('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Alex', 'Fergu
       ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Thomas', 'Tuchel', 'ttuchel@psg.com', 'Abc123',
 '+95135746821', 'true', 'France', 'Male','Part Time');
 
-
 insert into groups(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
-group_name, group_mascot, mentor_id)
+group_name, group_mascot, mentor_id, batch_id)
 values ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Group-1', 'Eagles',
-       (select m.id from mentors m where m.first_name='Alex')),
+       (select m.id from mentors m where m.first_name='Alex'),
+       (select b.id from batches b where b.batch_name='EU-4')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Group-2', 'Falcons',
-       (select m.id from mentors m where m.first_name='Alex')),
+       (select m.id from mentors m where m.first_name='Alex'),
+       (select b.id from batches b where b.batch_name='EU-4')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Group-3', 'Hawks',
-       (select m.id from mentors m where m.first_name='Zinedine')),
+       (select m.id from mentors m where m.first_name='Zinedine'),
+       (select b.id from batches b where b.batch_name='EU-4')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Group-4', 'Panthers',
-       (select m.id from mentors m where m.first_name='Zinedine')),
+       (select m.id from mentors m where m.first_name='Zinedine'),
+       (select b.id from batches b where b.batch_name='EU-4')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Group-5', 'Lions',
-       (select m.id from mentors m where m.first_name='Pep'));
+       (select m.id from mentors m where m.first_name='Pep'),
+       (select b.id from batches b where b.batch_name='EU-4'));
 
 
 insert into students(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,

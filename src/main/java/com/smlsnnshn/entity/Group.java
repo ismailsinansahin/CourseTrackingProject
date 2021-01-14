@@ -19,6 +19,10 @@ public class Group extends BaseEntity{
     private String groupMascot;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "batch_id")
+    private Batch batch;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mentor_id")
     private Mentor mentor;
 
