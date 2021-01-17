@@ -1,21 +1,21 @@
 insert into batches(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
-                    batch_name, start_date, end_date)
-values('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'EU-2', '2019-01-01', '2019-12-12'),
-      ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'EU-3', '2020-01-01', '2020-12-12'),
-      ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'EU-4', '2021-01-01', '2021-12-12');
+                    batch_name, batch_start_date, batch_end_date, batch_notes, batch_status)
+values('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'EU-2', '2019-01-01', '2019-12-12','Note-1','COMPLETED'),
+      ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'EU-3', '2020-01-01', '2020-12-12','Note-2','COMPLETED'),
+      ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'EU-4', '2021-01-01', '2021-12-12','Note-3','ACTIVE');
 
 insert into mentors(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
-first_name, last_name, email, password, phone, enabled, country, gender, mentor_working_status)
+first_name, last_name, email, password, phone, enabled, birthday, country, gender, mentor_working_status)
 values('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Alex', 'Ferguson', 'aferguson@mu.com', 'Abc123',
-'+15398463219', 'true', 'UK', 'Male','Full Time'),
+'5398463219', 'true', '1980-05-05 00:00:00', 'UK', 'MALE','FULL_TIME'),
       ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Zinedine', 'Zidane', 'zzidane@rm.com', 'Abc123',
-'+89745631987', 'true', 'Spain', 'Male','Full Time'),
+'9745631987', 'true', '1960-06-01 00:00:00', 'SPAIN', 'MALE','FULL_TIME'),
       ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Pep', 'Guardiola', 'pguardiola@mc.com', 'Abc123',
-'+65741365789', 'true', 'UK', 'Male','Full Time'),
+'5741365789', 'true', '1981-09-19 00:00:00', 'UK', 'MALE','FULL_TIME'),
       ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Hans Dieter', 'Flick', 'hdflick@bm.com', 'Abc123',
-'+86319873521', 'true', 'Germany', 'Male','Part Time'),
+'6319873521', 'true', '1974-11-05 00:00:00', 'GERMANY', 'MALE','PART_TIME'),
       ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Thomas', 'Tuchel', 'ttuchel@psg.com', 'Abc123',
-'+95135746821', 'true', 'France', 'Male','Part Time');
+'5135746821', 'true', '1990-06-22 00:00:00', 'FRANCE', 'MALE','PART_TIME');
 
 insert into groups(insert_date_time, insert_user_id, is_deleted, last_update_date_time, last_update_user_id,
 group_name, group_mascot, mentor_id, batch_id)
@@ -40,29 +40,29 @@ insert into students(insert_date_time, insert_user_id, is_deleted, last_update_d
 first_name, last_name, email, password, phone, enabled, country, gender,
 student_working_status, student_status, group_id)
 values ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Christiano', 'Ronaldo', 'cronaldo@ju.com', 'Abc123',
-       '+15398756325', 'true', 'Italy', 'Male', 'Not working', 'New',
+       '5398756325', 'true', 'ITALY', 'MALE', 'NOT_WORKING', 'NEW',
        (select g.id from groups g where group_name='Group-1')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Lionel', 'Messi', 'lmessi@ba.com', 'Abc123',
-       '+95135745698', 'true', 'Spain', 'Male', 'Not working', 'New',
+       '5135745698', 'true', 'SPAIN', 'MALE', 'NOT_WORKING', 'NEW',
        (select g.id from groups g where group_name='Group-1')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Andres', 'Iniesta', 'ainiesta@ba.com', 'Abc123',
-       '+96321478951', 'true', 'Spain', 'Male', 'Retaking', 'New',
+       '6321478951', 'true', 'SPAIN', 'MALE', 'RETAKING', 'NEW',
        (select g.id from groups g where group_name='Group-1')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Franck', 'Ribery', 'fribery@bm.com', 'Abc123',
-       '+15987569841', 'true', 'Germany', 'Male', 'Not working', 'New',
+       '5987569841', 'true', 'GERMANY', 'MALE', 'NOT_WORKING', 'NEW',
        (select g.id from groups g where group_name='Group-1')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Luka', 'Modric', 'lmodric@rm.com', 'Abc123',
-       '+32156987412', 'true', 'Spain', 'Male', 'Not working', 'New',
+       '2156987412', 'true', 'SPAIN', 'MALE', 'NOT_WORKING', 'NEW',
        (select g.id from groups g where group_name='Group-1')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Robert', 'Lewandowski', 'rlewandowski@bm.com', 'Abc123',
-       '+33552698774', 'true', 'Germany', 'Male', 'Returning', 'New',
+       '3552698774', 'true', 'GERMANY', 'MALE', 'RETURNING', 'NEW',
        (select g.id from groups g where group_name='Group-2')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Neymar', 'Neymar', 'nneymar@psg.com', 'Abc123',
-       '+59877456669', 'true', 'France', 'Male', 'Not working', 'New',
+       '9877456669', 'true', 'FRANCE', 'MALE', 'NOT_WORKING', 'NEW',
        (select g.id from groups g where group_name='Group-2')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Kevin', 'De Bruyne', 'kdbruyne@mc.com', 'Abc123',
-       '+32155698455', 'true', 'UK', 'Male', 'Returning', 'New',
+       '2155698455', 'true', 'UK', 'MALE', 'RETURNING', 'NEW',
        (select g.id from groups g where group_name='Group-2')),
        ('2021-01-05 00:00:00', 1, false, '2021-01-05 00:00:00', 1, 'Kylian', 'Mbappe', 'kmbappe@psg.com', 'Abc123',
-       '+36985215547', 'true', 'France', 'Male', 'Retaking', 'New',
+       '6985215547', 'true', 'FRANCE', 'MALE', 'RETAKING', 'NEW',
        (select g.id from groups g where group_name='Group-2'));

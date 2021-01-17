@@ -1,5 +1,6 @@
 package com.smlsnnshn.dto;
 
+import com.smlsnnshn.enums.BatchStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,5 +22,6 @@ public class BatchDTO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate batchEndDate;
     private String batchNotes;
+    private BatchStatus batchStatus;
 
 }

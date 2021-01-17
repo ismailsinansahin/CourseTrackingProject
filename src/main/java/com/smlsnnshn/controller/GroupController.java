@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/group")
 public class GroupController {
 
-    @GetMapping("/showGroup")
-    public String showGroupInfo(){
-        return "/group/showGroup";
+    @GetMapping("/createGroup")
+    public String createGroup(){
+        return "/group/createGroup";
     }
 
 }

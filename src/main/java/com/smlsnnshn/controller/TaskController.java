@@ -5,12 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/student")
-public class StudentController {
+@RequestMapping("/task")
+public class TaskController {
 
-    @GetMapping("/createStudent")
-    public String createStudent(){
-        return "/student/createStudent";
-    }
+    @GetMapping("/createTask")
+    public String createTask(){return "/task/createTask";}
 
 }
