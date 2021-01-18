@@ -28,7 +28,7 @@
                                 </header>
                                 <div class="panel-body">
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form class="needs-validation" novalidate th:action="@{/mentor/createMentor}" method="post" th:object="${mentor}" >
+                                    <form class="needs-validation" novalidate th:action="@{/mentor/createMentor}" method="post" th:object="${mentor}">
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
@@ -82,7 +82,7 @@
                                                     <label>Gender</label>
                                                     <select th:field="*{gender}" class="custom-select" required="required">
                                                         <option th:value="''" th:text="Select"></option>
-                                                        <option th:each="gender : ${genders}" th:value="${gender.getValue()}" th:text="${gender}"></option>
+                                                        <option th:each="gender : ${genders}" th:value="${gender.value}" th:text="${gender}"></option>
                                                     </select>
                                                 </div>
                                             </div>

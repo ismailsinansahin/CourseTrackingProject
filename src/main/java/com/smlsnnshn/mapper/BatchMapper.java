@@ -2,7 +2,6 @@ package com.smlsnnshn.mapper;
 
 import com.smlsnnshn.dto.BatchDTO;
 import com.smlsnnshn.entity.Batch;
-import com.smlsnnshn.repository.BatchRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -10,11 +9,9 @@ import org.springframework.stereotype.Component;
 public class BatchMapper {
 
     private ModelMapper modelMapper;
-    private BatchRepository batchRepository;
 
-    public BatchMapper(ModelMapper modelMapper, BatchRepository batchRepository) {
+    public BatchMapper(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
-        this.batchRepository = batchRepository;
     }
 
     public Batch convertToEntity(BatchDTO dto){
