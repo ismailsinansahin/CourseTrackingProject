@@ -81,8 +81,10 @@
                                                 <div class="form-group">
                                                     <label>Gender</label>
                                                     <select th:field="*{gender}" class="custom-select" required="required">
-                                                        <option th:value="''" th:text="Select"></option>
-                                                        <option th:each="gender : ${genders}" th:value="${gender.value}" th:text="${gender}"></option>
+                                                        <option th:each="gender : ${T(com.smlsnnshn.enums.Gender).values()}"
+                                                                th:value="${gender}"
+                                                                th:text="${gender.value}">
+                                                        </option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -114,8 +116,10 @@
                                                 <div class="form-group">
                                                     <label>Country</label>
                                                     <select th:field="*{country}" class="custom-select" required="required">
-                                                        <option th:value="''" th:text="Select"></option>
-                                                        <option th:each="country : ${countries}" th:value="${country.value}" th:text="${country}"></option>
+                                                        <option th:each="country : ${T(com.smlsnnshn.enums.Country).values()}"
+                                                                th:value="${country}"
+                                                                th:text="${country.value}">
+                                                        </option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -123,8 +127,10 @@
                                                 <div class="form-group">
                                                     <label>Working Status</label>
                                                     <select th:field="*{mentorWorkingStatus}" class="custom-select" required="required">
-                                                        <option th:value="''" th:text="Select"></option>
-                                                        <option th:each="mentorWorkingStatus : ${mentorWorkingStatuses}" th:value="${mentorWorkingStatus.value}"th:text="${mentorWorkingStatus}"></option>
+                                                        <option th:each="mentorWorkingStatus : ${T(com.smlsnnshn.enums.MentorWorkingStatus).values()}"
+                                                                th:value="${mentorWorkingStatus}"
+                                                                th:text="${mentorWorkingStatus.value}">
+                                                        </option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -171,10 +177,10 @@
                                                 <td th:text="${mentor.firstName + ' ' + mentor.lastName}"></td>
                                                 <td th:text="${mentor.email}"></td>
                                                 <td th:text="${mentor.phone}"></td>
-                                                <td th:text="${mentor.gender}"></td>
+                                                <td th:text="${mentor.gender.value}"></td>
                                                 <td th:text="${mentor.birthday}"></td>
-                                                <td th:text="${mentor.country}"></td>
-                                                <td th:text="${mentor.mentorWorkingStatus}"></td>
+                                                <td th:text="${mentor.country.value}"></td>
+                                                <td th:text="${mentor.mentorWorkingStatus.value}"></td>
                                                 <td class="actions">
 <!--                                                    <a th:href="@{/user/update/{id}(id=${mentor.userName})}"><button type="button" class="btn btn-warning btn-sm">Update</button></a>-->
 <!--                                                    <a th:href="@{/user/delete/{id}(id=${mentor.userName})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>-->

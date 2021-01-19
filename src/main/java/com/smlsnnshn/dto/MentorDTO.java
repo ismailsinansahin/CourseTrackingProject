@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.time.LocalDate;
 
 @NoArgsConstructor
@@ -30,13 +28,8 @@ public class MentorDTO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
 
-    @Enumerated(EnumType.STRING)
     private Country country;
-
-    @Enumerated(EnumType.STRING)
     private Gender gender;
-
-    @Enumerated(EnumType.STRING)
     private MentorWorkingStatus mentorWorkingStatus;
 
 }
