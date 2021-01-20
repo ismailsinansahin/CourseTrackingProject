@@ -33,7 +33,7 @@
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="firstname" class="col-form-label">First Name</label>
-                                                    <input id="firstname" type="text" placeholder="first name" th:field="*{firstName}" class="form-control" required>
+                                                    <input id="firstname" type="text" placeholder="First name" th:field="*{firstName}" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter first name
                                                     </div>
@@ -42,7 +42,7 @@
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="lastname" class="col-form-label">Last Name</label>
-                                                    <input id="lastname" type="text" placeholder="last name" th:field="*{lastName}" class="form-control" required>
+                                                    <input id="lastname" type="text" placeholder="Last name" th:field="*{lastName}" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter last name
                                                     </div>
@@ -53,7 +53,7 @@
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="emailaddress" class="col-form-label">Email Address</label>
-                                                    <input id="emailaddress" type="text" placeholder="email address" th:field="*{email}" class="form-control" required>
+                                                    <input id="emailaddress" type="text" placeholder="Email" th:field="*{email}" class="form-control" required>
                                                     <div class="invalid-feedback">
                                                         Please enter email
                                                     </div>
@@ -62,7 +62,7 @@
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="phonenumber" class="col-form-label">Phone Number</label>
-                                                    <input id="phonenumber" type="tel" placeholder="phone number" th:field="*{phone}" class="form-control"  pattern="^\d{10}$" required>
+                                                    <input id="phonenumber" type="tel" placeholder="Phone" th:field="*{phone}" class="form-control"  pattern="^\d{10}$" required>
                                                     <div class="invalid-feedback">
                                                         Please enter 10 digit phone number
                                                     </div>
@@ -81,6 +81,7 @@
                                                 <div class="form-group">
                                                     <label>Gender</label>
                                                     <select th:field="*{gender}" class="custom-select" required="required">
+                                                        <option th:text="Select" th:value="''"></option>
                                                         <option th:each="gender : ${T(com.smlsnnshn.enums.Gender).values()}"
                                                                 th:value="${gender}"
                                                                 th:text="${gender.value}">
@@ -93,7 +94,7 @@
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="password" class="col-form-label">Password</label>
-                                                    <input id="password" type="password" placeholder="password" th:field="*{password}" class="form-control"
+                                                    <input id="password" type="Password" placeholder="password" th:field="*{password}" class="form-control"
                                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
                                                     <div class="invalid-feedback">
                                                         Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters"
@@ -103,7 +104,7 @@
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="repassword" class="col-form-label">Password</label>
-                                                    <input id="repassword" type="password" placeholder="confirm your password" th:field="*{password}" class="form-control"
+                                                    <input id="repassword" type="password" placeholder="Confirm your password" th:field="*{password}" class="form-control"
                                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
                                                     <div class="invalid-feedback">
                                                         Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters"
@@ -116,6 +117,7 @@
                                                 <div class="form-group">
                                                     <label>Country</label>
                                                     <select th:field="*{country}" class="custom-select" required="required">
+                                                        <option th:text="Select" th:value="''"></option>
                                                         <option th:each="country : ${T(com.smlsnnshn.enums.Country).values()}"
                                                                 th:value="${country}"
                                                                 th:text="${country.value}">
@@ -127,6 +129,7 @@
                                                 <div class="form-group">
                                                     <label>Working Status</label>
                                                     <select th:field="*{mentorWorkingStatus}" class="custom-select" required="required">
+                                                        <option th:text="Select" th:value="''"></option>
                                                         <option th:each="mentorWorkingStatus : ${T(com.smlsnnshn.enums.MentorWorkingStatus).values()}"
                                                                 th:value="${mentorWorkingStatus}"
                                                                 th:text="${mentorWorkingStatus.value}">
@@ -182,8 +185,8 @@
                                                 <td th:text="${mentor.country.value}"></td>
                                                 <td th:text="${mentor.mentorWorkingStatus.value}"></td>
                                                 <td class="actions">
-<!--                                                    <a th:href="@{/user/update/{id}(id=${mentor.userName})}"><button type="button" class="btn btn-warning btn-sm">Update</button></a>-->
-<!--                                                    <a th:href="@{/user/delete/{id}(id=${mentor.userName})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>-->
+                                                    <a th:href="@{/mentor/updateMentor/{id}(id=${mentor.email})}"><button type="button" class="btn btn-warning btn-sm">Update</button></a>
+                                                    <a th:href="@{/mentor/deleteMentor/{id}(id=${mentor.email})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>
                                                 </td>
                                             </tr>
                                             </tbody>

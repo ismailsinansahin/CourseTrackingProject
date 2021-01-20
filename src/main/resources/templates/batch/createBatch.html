@@ -33,7 +33,7 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label class="col-form-label">Batch Name</label>
-                                                    <input id="projectname" type="text" placeholder="batch name"
+                                                    <input id="batchname" type="text" placeholder="Batch name"
                                                            th:field="${batch.batchName}"
                                                            class="form-control" required>
                                                     <div class="invalid-feedback">Please enter batch name</div>
@@ -62,7 +62,7 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Notes</label>
-                                                    <input type="text" placeholder="notes"
+                                                    <input type="text" placeholder="Notes"
                                                            th:field="${batch.batchNotes}" class="form-control"></input>
                                                 </div>
                                             </div>
@@ -108,9 +108,9 @@
                                                 <td th:text="${batch.batchEndDate}"></td>
                                                 <td th:text="${batch.batchNotes}"></td>
                                                 <td>
-<!--                                                    <a th:href="@{/batch/updateBatch/{id}(id=${project.getProjectCode()})}"class="btn btn-warning rounded-0">Update</a>-->
-<!--                                                    <a th:href="@{/batch/delete/{id}(id=${project.getProjectCode()})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>-->
-<!--                                                    <a th:href="@{/batch/complete/{id}(id=${project.getProjectCode()})}"class="btn btn-info rounded-0">Complete</a>-->
+                                                    <a th:href="@{/batch/updateBatch/{id}(id=${batch.getBatchId()})}"class="btn btn-warning rounded-0">Update</a>
+                                                    <a th:href="@{/batch/delete/{id}(id=${batch.getBatchId()})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
+                                                    <a th:href="@{/batch/complete/{id}(id=${batch.getBatchId()})}"class="btn btn-info rounded-0">Complete</a>
                                                 </td>
                                             </tr>
                                             </tbody>

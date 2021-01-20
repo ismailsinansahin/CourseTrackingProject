@@ -8,7 +8,8 @@ import java.util.List;
 public interface BatchService {
 
     List<BatchDTO> listAllBatches();
-    BatchDTO getByBatchName(String name);
+    BatchDTO findByBatchName(String name);
     Batch save(BatchDTO dto);
+    BatchDTO update(BatchDTO dto);
 
 }

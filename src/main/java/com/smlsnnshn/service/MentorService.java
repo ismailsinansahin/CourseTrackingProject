@@ -8,7 +8,8 @@ import java.util.List;
 public interface MentorService{
 
     List<MentorDTO> listAllMentors();
-    MentorDTO getByFirstName(String name);
+    MentorDTO findByEmail(String email);
     Mentor save(MentorDTO dto);
+    MentorDTO update(MentorDTO dto);
 
 }

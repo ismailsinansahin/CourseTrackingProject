@@ -16,7 +16,7 @@ public class MentorDTOConverter implements Converter<String, MentorDTO> {
 
     @Override
     public MentorDTO convert(String source) {
-        return mentorService.getByFirstName(source);
+        return mentorService.findByEmail(source);
     }
 
 }

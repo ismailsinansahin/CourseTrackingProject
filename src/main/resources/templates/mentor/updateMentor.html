@@ -5,7 +5,203 @@
 
 <body>
 
-Update Mentor
+<div class="dashboard-main-wrapper">
+
+    <div th:replace="/fragments/header :: header"></div>
+    <div th:replace="/fragments/left-sidebar :: left-sidebar"></div>
+
+    <div class="dashboard-wrapper">
+
+        <div class="dashboard-ecommerce">
+
+            <div class="container-fluid dashboard-content">
+
+                <div class="ecommerce-widget">
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-12">
+
+                            <section class="panel panel-transparent">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">Mentor Create</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <!-- ------------------------FORM START----------------------------- -->
+                                    <form class="needs-validation" novalidate th:action="@{/mentor/updateMentor/{email}(email=${mentor.email})}" method="post" th:object="${mentor}">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname" class="col-form-label">First Name</label>
+                                                    <input id="firstname" type="text" placeholder="first name" th:field="*{firstName}" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter first name
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="lastname" class="col-form-label">Last Name</label>
+                                                    <input id="lastname" type="text" placeholder="last name" th:field="*{lastName}" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter last name
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="emailaddress" class="col-form-label">Email Address</label>
+                                                    <input id="emailaddress" type="text" placeholder="email address" th:field="*{email}" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter email
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phonenumber" class="col-form-label">Phone Number</label>
+                                                    <input id="phonenumber" type="tel" placeholder="phone number" th:field="*{phone}" class="form-control"  pattern="^\d{10}$" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter 10 digit phone number
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Date of Birth</label>
+                                                    <input type="date" th:field="*{birthday}" class="form-control" required>
+                                                    <div class="invalid-feedback">Please enter date of birth</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Gender</label>
+                                                    <select th:field="*{gender}" class="custom-select" required="required">
+                                                        <option th:each="gender : ${T(com.smlsnnshn.enums.Gender).values()}"
+                                                                th:value="${gender}"
+                                                                th:text="${gender.value}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="password" class="col-form-label">Password</label>
+                                                    <input id="password" type="password" placeholder="password" th:field="*{password}" class="form-control"
+                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
+                                                    <div class="invalid-feedback">
+                                                        Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters"
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="repassword" class="col-form-label">Password</label>
+                                                    <input id="repassword" type="password" placeholder="confirm your password" th:field="*{password}" class="form-control"
+                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
+                                                    <div class="invalid-feedback">
+                                                        Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters"
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Country</label>
+                                                    <select th:field="*{country}" class="custom-select" required="required">
+                                                        <option th:each="country : ${T(com.smlsnnshn.enums.Country).values()}"
+                                                                th:value="${country}"
+                                                                th:text="${country.value}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Working Status</label>
+                                                    <select th:field="*{mentorWorkingStatus}" class="custom-select" required="required">
+                                                        <option th:each="mentorWorkingStatus : ${T(com.smlsnnshn.enums.MentorWorkingStatus).values()}"
+                                                                th:value="${mentorWorkingStatus}"
+                                                                th:text="${mentorWorkingStatus.value}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-12">
+                                                <div class="float-right">
+                                                    <button type="submit" class="btn btn-success">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- ------------------------FORM END----------------------------- -->
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------------TABLE START----------------------------- -->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="col-md-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">Mentor List</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Phone</th>
+                                                <th scope="col">Gender</th>
+                                                <th scope="col">Birthday</th>
+                                                <th scope="col">Country</th>
+                                                <th scope="col">Working Status</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="mentor : ${mentors}">
+                                                <td th:text="${mentor.firstName + ' ' + mentor.lastName}"></td>
+                                                <td th:text="${mentor.email}"></td>
+                                                <td th:text="${mentor.phone}"></td>
+                                                <td th:text="${mentor.gender.value}"></td>
+                                                <td th:text="${mentor.birthday}"></td>
+                                                <td th:text="${mentor.country.value}"></td>
+                                                <td th:text="${mentor.mentorWorkingStatus.value}"></td>
+                                                <td class="actions">
+                                                    <a th:href="@{/mentor/updateMentor/{id}(id=${mentor.email})}"><button type="button" class="btn btn-warning btn-sm">Update</button></a>
+                                                    <a th:href="@{/mentor/deleteMentor/{id}(id=${mentor.email})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------------TABLE END----------------------------- -->
+            </div>
+        </div>
+    </div>
+    <div th:replace="/fragments/footer :: footer"></div>
+</div>
+
+<div th:replace="/fragments/javascript :: js"></div>
 
 </body>
 

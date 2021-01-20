@@ -8,6 +8,7 @@ import com.smlsnnshn.service.MentorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -51,5 +52,34 @@ public class MentorController {
         return "redirect:/mentor/createMentor";
 
     }
+
+    @GetMapping("/updateMentor/{email}")
+    public String updateMentor(@PathVariable("email") String email, Model model){
+
+        model.addAttribute("mentor",mentorService.findByEmail(email));
+        model.addAttribute("mentors",mentorService.listAllMentors());
+
+        List<Country> countries = Arrays.asList(Country.values());
+        model.addAttribute("countries",countries);
+
+        List<Gender> genders = Arrays.asList(Gender.values());
+        model.addAttribute("genders",genders);
+
+        List<MentorWorkingStatus> mentorWorkingStatuses = Arrays.asList(MentorWorkingStatus.values());
+        model.addAttribute("mentorWorkingStatuses",mentorWorkingStatuses);
+
+        return "/mentor/updateMentor";
+
+    }
+
+    @PostMapping("/updateMentor/{email}")
+    public String updateMentor(@PathVariable("email") String email, MentorDTO mentorDTO, Model model){
+
+        mentorService.update(mentorDTO);
+        return "redirect:/mentor/createMentor";
+
+    }
+
+
 
 }

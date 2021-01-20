@@ -38,7 +38,17 @@ public class BatchServiceImpl implements BatchService {
     }
 
     @Override
-    public BatchDTO getByBatchName(String name) {
+    public BatchDTO update(BatchDTO dto) {
+        Batch batch = batchRepository.findByBatchName(dto.getBatchName());
+        Batch convertedBatch = batchMapper.convertToEntity(dto);
+        convertedBatch.setId(batch.getId());
+        batchRepository.save(convertedBatch);
+        return findByBatchName(dto.getBatchName());
+
+    }
+
+    @Override
+    public BatchDTO findByBatchName(String name) {
         Batch batch = batchRepository.findByBatchName(name);
         return batchMapper.convertToDTO(batch);
     }

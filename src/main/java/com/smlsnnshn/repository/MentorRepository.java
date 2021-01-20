@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MentorRepository extends JpaRepository<Mentor,Long> {
 
-    Mentor findByFirstName(String name);
+    Mentor findByEmail(String email);
 
 }

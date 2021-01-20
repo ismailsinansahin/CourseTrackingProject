@@ -1,11 +1,138 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="/fragments/head :: header"></head>
 
 <body>
 
-Update Batch
+<div class="dashboard-main-wrapper">
+
+    <div th:replace="/fragments/header :: header"></div>
+
+    <div th:replace="/fragments/left-sidebar :: left-sidebar"></div>
+
+    <div class="dashboard-wrapper">
+
+        <div class="dashboard-ecommerce">
+
+            <div class="container-fluid dashboard-content">
+
+                <div class="ecommerce-widget">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <section class="panel panel-transparent">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">Batch Create</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <!-- ------------------------FORM START----------------------------- -->
+                                    <form class="needs-validation" novalidate
+                                          th:action="@{/batch/updateBatch/{batchName}(batchName=${batch.batchName})}" method="post" th:object="${batch}">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Batch Name</label>
+                                                    <input id="batchname" type="text" placeholder="Batch name"
+                                                           th:field="${batchName}"
+                                                           class="form-control" required>
+                                                    <div class="invalid-feedback">Please enter batch name</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Batch Start Date</label>
+                                                    <input type="date" th:field="*{batchStartDate}"
+                                                           class="form-control" required>
+                                                    <div class="invalid-feedback">Please enter batch start date</div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Batch End Date</label>
+                                                    <input type="date" th:field="*{batchEndDate}"
+                                                           class="form-control"required>
+                                                    <div class="invalid-feedback">Please enter batch end date</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <label>Notes</label>
+                                                    <input type="text" placeholder="Notes"
+                                                           th:field="${batchNotes}" class="form-control"></input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="float-right">
+                                                    <button class="btn btn-success rounded-0" type="submit">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- ------------------------FORM END----------------------------- -->
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------------TABLE START----------------------------- -->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="col-md-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">Batch List</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Batch Name</th>
+                                                <th scope="col">Start Date</th>
+                                                <th scope="col">End Date</th>
+                                                <th scope="col">Notes</th>
+                                                <th scope="col">Actions</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="batch : ${batches}">
+                                                <td th:text="${batch.batchName}"></td>
+                                                <td th:text="${batch.batchStartDate}"></td>
+                                                <td th:text="${batch.batchEndDate}"></td>
+                                                <td th:text="${batch.batchNotes}"></td>
+                                                <td>
+                                                    <a th:href="@{/batch/updateBatch/{id}(id=${batch.getBatchId()})}"class="btn btn-warning rounded-0">Update</a>
+                                                    <a th:href="@{/batch/delete/{id}(id=${batch.getBatchId()})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
+                                                    <a th:href="@{/batch/complete/{id}(id=${batch.getBatchId()})}"class="btn btn-info rounded-0">Complete</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------------TABLE END----------------------------- -->
+            </div>
+
+        </div>
+
+    </div>
+
+    <div th:replace="/fragments/footer :: footer"></div>
+
+</div>
+
+<div th:replace="/fragments/javascript :: js"></div>
 
 </body>
 

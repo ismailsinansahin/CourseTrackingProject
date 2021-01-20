@@ -36,8 +36,17 @@ public class MentorServiceImpl implements MentorService {
     }
 
     @Override
-    public MentorDTO getByFirstName(String name) {
-        Mentor mentor = mentorRepository.findByFirstName(name);
+    public MentorDTO update(MentorDTO dto) {
+        Mentor mentor = mentorRepository.findByEmail(dto.getEmail());
+        Mentor convertedMentor = mentorMapper.convertToEntity(dto);
+        convertedMentor.setId(mentor.getId());
+        mentorRepository.save(convertedMentor);
+        return findByEmail(dto.getEmail());
+    }
+
+    @Override
+    public MentorDTO findByEmail(String email) {
+        Mentor mentor = mentorRepository.findByEmail(email);
         return mentorMapper.convertToDTO(mentor);
     }
 
