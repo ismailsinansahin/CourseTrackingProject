@@ -30,7 +30,6 @@
                                     data-target="#submenu-1"
                                     aria-controls="submenu-1"
                             ><i class="fa fa-fw fa-user-circle"></i>Batch
-                                <span class="badge badge-success">6</span>
                             </a>
                             <div id="submenu-1" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
@@ -38,7 +37,7 @@
                                         <a class="nav-link" th:href="@{/batch/createBatch}">Create</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/batch/updateBatch}">Update</a>
+                                        <a class="nav-link" th:href="@{/batch/showBatch}">Show</a>
                                     </li>
                                 </ul>
                             </div>
@@ -60,28 +59,7 @@
                                         <a class="nav-link" th:href="@{/group/createGroup}">Create</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/group/updateGroup}">Update</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                    class="nav-link"
-                                    href="#"
-                                    data-toggle="collapse"
-                                    aria-expanded="false"
-                                    data-target="#submenu-3"
-                                    aria-controls="submenu-3"
-                            ><i class="fas fa-user-graduate"></i>Mentor
-                            </a>
-                            <div id="submenu-3" class="collapse submenu" style="">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/mentor/createMentor}">Create</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/mentor/updateMentor}">Update</a>
+                                        <a class="nav-link" th:href="@{/group/showGroup}">Show</a>
                                     </li>
                                 </ul>
                             </div>
@@ -102,7 +80,28 @@
                                         <a class="nav-link" th:href="@{/student/createStudent}">Create</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/student/updateStudent}">Update</a>
+                                        <a class="nav-link" th:href="@{/student/showStudent}">Show</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a
+                                    class="nav-link"
+                                    href="#"
+                                    data-toggle="collapse"
+                                    aria-expanded="false"
+                                    data-target="#submenu-3"
+                                    aria-controls="submenu-3"
+                            ><i class="fas fa-user-graduate"></i>Mentor
+                            </a>
+                            <div id="submenu-3" class="collapse submenu" style="">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{/mentor/createMentor}">Create</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{/mentor/showMentor}">Show</a>
                                     </li>
                                 </ul>
                             </div>
@@ -123,7 +122,7 @@
                                         <a class="nav-link" th:href="@{/task/createTask}">Create</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" th:href="@{/task/updateTask}">Update</a>
+                                        <a class="nav-link" th:href="@{/task/updateTask}">XXXX</a>
                                     </li>
                                 </ul>
                             </div>

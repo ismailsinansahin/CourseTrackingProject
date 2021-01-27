@@ -1,7 +1,7 @@
 package com.smlsnnshn.converter;
 
-import com.smlsnnshn.dto.MentorDTO;
-import com.smlsnnshn.service.MentorService;
+import com.smlsnnshn.dto.GroupDTO;
+import com.smlsnnshn.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.context.annotation.Lazy;
@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationPropertiesBinding
-public class MentorDTOConverter implements Converter<String, MentorDTO> {
+public class GroupDTOConverter implements Converter<String,GroupDTO> {
 
     @Autowired
     @Lazy
-    MentorService mentorService;
+    GroupService groupService;
 
     @Override
-    public MentorDTO convert(String source) {
-        return mentorService.findByEmail(source);
+    public GroupDTO convert(String source) {
+        return groupService.findByGroupName(source);
     }
 
 }

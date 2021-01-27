@@ -28,13 +28,14 @@
                                 <div class="panel-body">
                                     <!-- ------------------------FORM START----------------------------- -->
                                     <form class="needs-validation" novalidate
-                                          th:action="@{/batch/updateBatch/{batchName}(batchName=${batch.batchName})}" method="post" th:object="${batch}">
+                                          th:action="@{/batch/updateBatch/{batchName}(batchName=${batch.batchName})}"
+                                          method="post" th:object="${batch}">
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label class="col-form-label">Batch Name</label>
                                                     <input id="batchname" type="text" placeholder="Batch name"
-                                                           th:field="${batchName}"
+                                                           th:field="*{batchName}"
                                                            class="form-control" required>
                                                     <div class="invalid-feedback">Please enter batch name</div>
                                                 </div>
@@ -62,8 +63,8 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Notes</label>
-                                                    <input type="text" placeholder="Notes"
-                                                           th:field="${batchNotes}" class="form-control"></input>
+                                                    <input id="batchNotes" type="text" placeholder="Notes"
+                                                           th:field="*{batchNotes}" class="form-control"></input>
                                                 </div>
                                             </div>
                                         </div>

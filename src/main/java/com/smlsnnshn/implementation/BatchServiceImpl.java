@@ -48,6 +48,13 @@ public class BatchServiceImpl implements BatchService {
     }
 
     @Override
+    public void delete(String name) {
+        Batch batch = batchRepository.findByBatchName(name);
+        batch.setIsDeleted(true);
+        batchRepository.save(batch);
+    }
+
+    @Override
     public BatchDTO findByBatchName(String name) {
         Batch batch = batchRepository.findByBatchName(name);
         return batchMapper.convertToDTO(batch);

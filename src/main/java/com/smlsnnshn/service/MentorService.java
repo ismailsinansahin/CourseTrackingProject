@@ -11,5 +11,6 @@ public interface MentorService{
     MentorDTO findByEmail(String email);
     Mentor save(MentorDTO dto);
     MentorDTO update(MentorDTO dto);
+    void delete(String email);
 
 }

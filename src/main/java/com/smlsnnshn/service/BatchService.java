@@ -11,5 +11,6 @@ public interface BatchService {
     BatchDTO findByBatchName(String name);
     Batch save(BatchDTO dto);
     BatchDTO update(BatchDTO dto);
+    void delete(String name);
 
 }

@@ -108,9 +108,9 @@
                                                 <td th:text="${batch.batchEndDate}"></td>
                                                 <td th:text="${batch.batchNotes}"></td>
                                                 <td>
-                                                    <a th:href="@{/batch/updateBatch/{id}(id=${batch.getBatchId()})}"class="btn btn-warning rounded-0">Update</a>
-                                                    <a th:href="@{/batch/delete/{id}(id=${batch.getBatchId()})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
-                                                    <a th:href="@{/batch/complete/{id}(id=${batch.getBatchId()})}"class="btn btn-info rounded-0">Complete</a>
+                                                    <a th:href="@{/batch/updateBatch/{id}(id=${batch.batchName})}"class="btn btn-warning rounded-0">Update</a>
+                                                    <a th:href="@{/batch/deleteBatch/{id}(id=${batch.batchName})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
+                                                    <a th:href="@{/batch/completeBatch/{id}(id=${batch.batchName})}"class="btn btn-info rounded-0">Complete</a>
                                                 </td>
                                             </tr>
                                             </tbody>

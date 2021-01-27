@@ -45,6 +45,17 @@ public class MentorServiceImpl implements MentorService {
     }
 
     @Override
+    public void delete(String email) {
+        Mentor mentor = mentorRepository.findByEmail(email);
+        mentor.setIsDeleted(true);
+        mentorRepository.save(mentor);
+    }
+
+    public void deleteByEmail(String email){
+        mentorRepository.deleteByEmail(email);
+    }
+
+    @Override
     public MentorDTO findByEmail(String email) {
         Mentor mentor = mentorRepository.findByEmail(email);
         return mentorMapper.convertToDTO(mentor);

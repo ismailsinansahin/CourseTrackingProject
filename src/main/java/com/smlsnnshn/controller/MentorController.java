@@ -80,6 +80,12 @@ public class MentorController {
 
     }
 
+    @GetMapping("/deleteMentor/{email}")
+    public String deleteMentor(@PathVariable("email") String email){
 
+        mentorService.delete(email);
+        return "redirect:/mentor/createMentor";
+
+    }
 
 }

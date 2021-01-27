@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -20,6 +21,7 @@ import java.time.LocalDate;
 @Getter
 @Entity
 @Table(name = "mentors")
+@Where(clause="is_deleted=false")
 public class Mentor extends BaseEntity{
 
     private String firstName;

@@ -49,8 +49,21 @@ public class BatchController {
     public String updateBatch(@PathVariable("batchName") String batchName, BatchDTO batchDTO, Model model){
 
         batchService.update(batchDTO);
-        return "redirect:/batch/creteBatch";
+        return "redirect:/batch/createBatch";
 
+    }
+
+    @GetMapping("/deleteBatch/{batchName}")
+    public String deleteBatch(@PathVariable("batchName") String batchName){
+
+        batchService.delete(batchName);
+        return "redirect:/batch/createBatch";
+
+    }
+
+    @GetMapping("/showBatch")
+    public String showBatch(){
+        return "/batch/showBatch";
     }
 
 }

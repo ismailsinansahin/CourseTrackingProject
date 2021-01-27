@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
@@ -17,6 +18,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "students")
+@Where(clause="is_deleted=false")
 public class Student extends BaseEntity{
 
     private String firstName;
