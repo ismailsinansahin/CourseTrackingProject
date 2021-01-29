@@ -19,4 +19,6 @@ public class CourseTrackingApplication {
 
     //gitgub practice
 
+    //new app class change
+
 }
