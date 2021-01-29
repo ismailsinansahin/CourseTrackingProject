@@ -17,4 +17,8 @@ public class CourseTrackingApplication {
         return new ModelMapper();
     }
 
+    //gitgub practice
+
+    //new app class change
+
 }

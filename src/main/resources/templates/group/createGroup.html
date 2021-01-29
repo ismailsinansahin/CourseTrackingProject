@@ -51,7 +51,7 @@
                                                     <label>Select a Batch</label>
                                                     <select th:field="*{batch}" class="custom-select" required="required">
                                                         <option th:value="''" th:text="Select"></option>
-                                                        <option th:each="batch : ${batches}" th:value="${batch.batchId}" th:text="${batch.batchName}"></option>
+                                                        <option th:each="batch : ${batches}" th:value="${batch}" th:text="${batch.batchName}"></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -60,7 +60,7 @@
                                                     <label>Select a Mentor</label>
                                                     <select th:field="*{mentor}" class="custom-select" required="required">
                                                         <option th:value="''" th:text="Select"></option>
-                                                        <option th:each="mentor : ${mentors}" th:value="${mentor.mentorId}" th:text="${mentor.firstName+' '+mentor.lastName}"></option>
+                                                        <option th:each="mentor : ${mentors}" th:value="${mentor}" th:text="${mentor.firstName+' '+mentor.lastName}"></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -85,7 +85,7 @@
                         <div class="col-md-12">
                             <section class="panel">
                                 <header class="panel-heading">
-                                    <h2 class="panel-title">Batch List</h2>
+                                    <h2 class="panel-title">Group List</h2>
                                 </header>
                                 <div class="panel-body">
                                     <div class="table-responsive">
