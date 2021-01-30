@@ -61,9 +61,12 @@ public class BatchController {
 
     }
 
-    @GetMapping("/showBatch")
-    public String showBatch(){
+    @GetMapping("/showBatch/{batchName}")
+    public String showBatch(@PathVariable("batchName") String batchName, Model model){
+
+        model.addAttribute("batch",batchService.findByBatchName(batchName));
         return "/batch/showBatch";
+
     }
 
 }
