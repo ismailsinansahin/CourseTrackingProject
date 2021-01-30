@@ -45,7 +45,7 @@ public class GroupServiceImpl implements GroupService {
     public GroupDTO update(GroupDTO dto) {
         Group group = groupRepository.findByGroupName(dto.getGroupName());
         Group convertedGroup = groupMapper.convertToEntity(dto);
-        convertedGroup.setId(dto.getGroupId());
+        convertedGroup.setId(group.getId());
         groupRepository.save(convertedGroup);
         return findByGroupName(dto.getGroupName());
     }
