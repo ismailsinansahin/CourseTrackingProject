@@ -44,7 +44,6 @@ public class BatchServiceImpl implements BatchService {
         convertedBatch.setId(batch.getId());
         batchRepository.save(convertedBatch);
         return findByBatchName(dto.getBatchName());
-
     }
 
     @Override
