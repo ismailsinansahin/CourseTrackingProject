@@ -15,12 +15,12 @@
                         <div class="col-sm-2 col-lg-2">
                             <div class="panel panel-primary">
                                 <div class="panel-heading text-center p-3 mb-2 bg-primary text-white"><strong>Batch Profile</strong></div>
-                                <div class="panel panel-primary bg-primary-light text-dark">
-                                    <div><strong>Batch Name</strong><br>EU-6</div>
-                                    <div><strong>Batch Start Date</strong><br>05/05/2021</div>
-                                    <div><strong>Batch End Date</strong><br>05/11/2021</div>
-                                    <div><strong>Batch Status</strong><br>Active</div>
-                                    <div><strong>Batch Notes</strong><br>EU</span></div>
+                                <div class="panel panel-primary bg-primary-light text-dark"  th:object="${batch}" >
+                                    <div><strong>Batch Name</strong><br><label th:field="*{batchName}"></label></div>
+                                    <div><strong>Batch Start Date</strong><br><label th:field="*{batchStartDate}"></label></div>
+                                    <div><strong>Batch End Date</strong><br><label th:field="*{batchEndDate}"></label></div>
+                                    <div><strong>Batch Status</strong><br><label th:field="*{batchStatus}"></label></div>
+                                    <div><strong>Batch Notes</strong><br><label th:field="*{batchNotes}"></label></div>
                                 </div>
                             </div>
                         </div>

@@ -47,6 +47,8 @@ public class GroupController {
 
         model.addAttribute("group",groupService.findByGroupName(groupName));
         model.addAttribute("groups",groupService.listAllGroups());
+        model.addAttribute("batches", batchService.listAllBatches());
+        model.addAttribute("mentors", mentorService.listAllMentors());
         return "/group/updateGroup";
 
     }
@@ -55,7 +57,7 @@ public class GroupController {
     public String updateGroup(@PathVariable("groupName") String groupName, GroupDTO groupDTO, Model model){
 
         groupService.update(groupDTO);
-        return "redirect:/group/creteGroup";
+        return "redirect:/group/createGroup";
 
     }
 
