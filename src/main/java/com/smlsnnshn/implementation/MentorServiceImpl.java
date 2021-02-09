@@ -61,4 +61,11 @@ public class MentorServiceImpl implements MentorService {
         return mentorMapper.convertToDTO(mentor);
     }
 
+    @Override
+    public MentorDTO findByMentorId(String MentorId) {
+        Long id = Long.parseLong(MentorId);
+        Mentor mentor = mentorRepository.getOne(id);
+        return mentorMapper.convertToDTO(mentor);
+    }
+
 }
