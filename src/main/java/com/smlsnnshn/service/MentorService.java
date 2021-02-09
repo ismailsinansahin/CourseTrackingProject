@@ -9,6 +9,7 @@ public interface MentorService{
 
     List<MentorDTO> listAllMentors();
     MentorDTO findByEmail(String email);
+    MentorDTO findByMentorId(String MentorId);
     Mentor save(MentorDTO dto);
     MentorDTO update(MentorDTO dto);
     void delete(String email);

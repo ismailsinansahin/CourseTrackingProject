@@ -18,7 +18,7 @@ public class BatchDTOConverter implements Converter<String, BatchDTO> {
 
     @Override
     public BatchDTO convert(String source) {
-        return batchService.findByBatchName(source);
+        return batchService.findByBatchId(source);
     }
 
 }

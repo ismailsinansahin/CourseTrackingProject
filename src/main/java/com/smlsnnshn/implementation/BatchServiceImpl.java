@@ -59,4 +59,11 @@ public class BatchServiceImpl implements BatchService {
         return batchMapper.convertToDTO(batch);
     }
 
+    @Override
+    public BatchDTO findByBatchId(String batchID) {
+        Long id = Long.parseLong(batchID);
+        Batch batch = batchRepository.getOne(id);
+        return batchMapper.convertToDTO(batch);
+    }
+
 }
