@@ -11,5 +11,6 @@ public interface GroupService {
     GroupDTO findByGroupName(String name);
     Group save(GroupDTO dto);
     GroupDTO update(GroupDTO dto);
+    void delete(String name);
 
 }

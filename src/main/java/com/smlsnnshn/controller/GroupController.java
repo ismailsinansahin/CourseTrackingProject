@@ -61,9 +61,20 @@ public class GroupController {
 
     }
 
-    @GetMapping("/showGroup")
-    public String showGroup(){
+    @GetMapping("/deleteGroup/{groupName}")
+    public String deleteGroup(@PathVariable("groupName") String groupName){
+
+        groupService.delete(groupName);
+        return "redirect:/group/createGroup";
+
+    }
+
+    @GetMapping("/showGroup/{groupName}")
+    public String showGroup(@PathVariable("groupName") String groupName, Model model){
+
+        model.addAttribute("group",groupService.findByGroupName(groupName));
         return "/group/showGroup";
+
     }
 
 }

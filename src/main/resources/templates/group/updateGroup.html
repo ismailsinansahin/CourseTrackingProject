@@ -51,7 +51,7 @@
                                                 <div class="form-group">
                                                     <label>Select a Batch</label>
                                                     <select th:field="*{batch}" class="custom-select" required="required">
-                                                        <option th:each="batch : ${batches}" th:value="${batch.batchName}" th:text="${batch.batchName}"></option>
+                                                        <option th:each="batch : ${batches}" th:value="${batch.batchId}" th:text="${batch.batchName}"></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -59,7 +59,7 @@
                                                 <div class="form-group">
                                                     <label>Select a Mentor</label>
                                                     <select th:field="*{mentor}" class="custom-select" required="required">
-                                                        <option th:each="mentor : ${mentors}" th:value="${mentor.email}" th:text="${mentor.firstName+' '+mentor.lastName}"></option>
+                                                        <option th:each="mentor : ${mentors}" th:value="${mentor.mentorId}" th:text="${mentor.firstName+' '+mentor.lastName}"></option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -105,8 +105,9 @@
                                                 <td th:text="${group.groupMascot}"></td>
                                                 <td th:text="${group.mentor.firstName+' '+group.mentor.lastName}"></td>
                                                 <td>
+                                                    <a th:href="@{/group/showGroup/{id}(id=${group.groupName})}"class="btn btn-facebook rounded-0">Show</a>
                                                     <a th:href="@{/group/updateGroup/{id}(id=${group.groupName})}"class="btn btn-warning rounded-0">Update</a>
-                                                    <a th:href="@{/group/delete/{id}(id=${group.groupName})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
+                                                    <a th:href="@{/group/deleteGroup/{id}(id=${group.groupName})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
                                                 </td>
                                             </tr>
                                             </tbody>

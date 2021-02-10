@@ -176,6 +176,7 @@
                                                 <td th:text="${mentor.country.value}"></td>
                                                 <td th:text="${mentor.mentorWorkingStatus.value}"></td>
                                                 <td class="actions">
+                                                    <a th:href="@{/mentor/showMentor/{id}(id=${mentor.mentorId})}" class="btn btn-facebook rounded-0">Show</a>
                                                     <a th:href="@{/mentor/updateMentor/{id}(id=${mentor.email})}"><button type="button" class="btn btn-warning btn-sm">Update</button></a>
                                                     <a th:href="@{/mentor/deleteMentor/{id}(id=${mentor.email})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>
                                                 </td>

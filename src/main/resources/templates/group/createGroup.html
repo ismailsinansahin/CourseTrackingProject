@@ -106,8 +106,9 @@
                                                 <td th:text="${group.groupMascot}"></td>
                                                 <td th:text="${group.mentor.firstName+' '+group.mentor.lastName}"></td>
                                                 <td>
+                                                    <a th:href="@{/group/showGroup/{id}(id=${group.groupName})}"class="btn btn-facebook rounded-0">Show</a>
                                                     <a th:href="@{/group/updateGroup/{id}(id=${group.groupName})}"class="btn btn-warning rounded-0">Update</a>
-                                                    <a th:href="@{/group/delete/{id}(id=${group.groupName})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
+                                                    <a th:href="@{/group/deleteGroup/{id}(id=${group.groupName})}"><button type="button" class="btn btn-danger rounded-0">Delete</button></a>
                                                 </td>
                                             </tr>
                                             </tbody>
