@@ -50,4 +50,11 @@ public class GroupServiceImpl implements GroupService {
         return findByGroupName(dto.getGroupName());
     }
 
+    @Override
+    public void delete(String name) {
+        Group group = groupRepository.findByGroupName(name);
+        group.setIsDeleted(true);
+        groupRepository.save(group);
+    }
+
 }

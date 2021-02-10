@@ -88,4 +88,12 @@ public class MentorController {
 
     }
 
+    @GetMapping("/showMentor/{mentorId}")
+    public String showMentor(@PathVariable("mentorId") String mentorId, Model model){
+
+        model.addAttribute("mentor",mentorService.findByMentorId(mentorId));
+        return "/mentor/showMentor";
+
+    }
+
 }
