@@ -9,6 +9,7 @@ public interface GroupService {
 
     List<GroupDTO> listAllGroups();
     GroupDTO findByGroupName(String name);
+    GroupDTO findByGroupId(String groupId);
     Group save(GroupDTO dto);
     GroupDTO update(GroupDTO dto);
     void delete(String name);

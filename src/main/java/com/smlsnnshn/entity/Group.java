@@ -24,8 +24,7 @@ public class Group extends BaseEntity{
     @JoinColumn(name = "batch_id")
     private Batch batch;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mentor_id")
+    @ManyToOne()
     private Mentor mentor;
 
 }

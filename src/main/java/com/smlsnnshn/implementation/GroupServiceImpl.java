@@ -57,4 +57,11 @@ public class GroupServiceImpl implements GroupService {
         groupRepository.save(group);
     }
 
+    @Override
+    public GroupDTO findByGroupId(String groupId) {
+        Long id = Long.parseLong(groupId);
+        Group group = groupRepository.getOne(id);
+        return groupMapper.convertToDTO(group);
+    }
+
 }

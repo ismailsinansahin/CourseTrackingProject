@@ -5,7 +5,234 @@
 
 <body>
 
-Create Student
+<div class="dashboard-main-wrapper">
+
+    <div th:replace="/fragments/header :: header"></div>
+    <div th:replace="/fragments/left-sidebar :: left-sidebar"></div>
+
+    <div class="dashboard-wrapper">
+
+        <div class="dashboard-ecommerce">
+
+            <div class="container-fluid dashboard-content">
+
+                <div class="ecommerce-widget">
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-12">
+
+                            <section class="panel panel-transparent">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">Student Create</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <!-- ------------------------FORM START----------------------------- -->
+                                    <form class="needs-validation" novalidate th:action="@{/student/createStudent}" method="post" th:object="${student}">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname" class="col-form-label">First Name</label>
+                                                    <input id="firstname" type="text" placeholder="First name" th:field="*{firstName}" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter first name
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="lastname" class="col-form-label">Last Name</label>
+                                                    <input id="lastname" type="text" placeholder="Last name" th:field="*{lastName}" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter last name
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="emailaddress" class="col-form-label">Email Address</label>
+                                                    <input id="emailaddress" type="text" placeholder="Email" th:field="*{email}" class="form-control" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter email
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phonenumber" class="col-form-label">Phone Number</label>
+                                                    <input id="phonenumber" type="tel" placeholder="Phone" th:field="*{phone}" class="form-control"  pattern="^\d{10}$" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter 10 digit phone number
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Date of Birth</label>
+                                                    <input type="date" th:field="*{birthday}" class="form-control" required>
+                                                    <div class="invalid-feedback">Please enter date of birth</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Gender</label>
+                                                    <select th:field="*{gender}" class="custom-select" required="required">
+                                                        <option th:text="Select" th:value="''"></option>
+                                                        <option th:each="gender : ${T(com.smlsnnshn.enums.Gender).values()}"
+                                                                th:value="${gender}"
+                                                                th:text="${gender.value}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="password" class="col-form-label">Password</label>
+                                                    <input id="password" type="Password" placeholder="password" th:field="*{password}" class="form-control"
+                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
+                                                    <div class="invalid-feedback">
+                                                        Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters"
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label for="repassword" class="col-form-label">Password</label>
+                                                    <input id="repassword" type="password" placeholder="Confirm your password" th:field="*{password}" class="form-control"
+                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" required>
+                                                    <div class="invalid-feedback">
+                                                        Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters"
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Country</label>
+                                                    <select th:field="*{country}" class="custom-select" required="required">
+                                                        <option th:text="Select" th:value="''"></option>
+                                                        <option th:each="country : ${T(com.smlsnnshn.enums.Country).values()}"
+                                                                th:value="${country}"
+                                                                th:text="${country.value}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Working Status</label>
+                                                    <select th:field="*{studentWorkingStatus}" class="custom-select" required="required">
+                                                        <option th:text="Select" th:value="''"></option>
+                                                        <option th:each="studentWorkingStatus : ${T(com.smlsnnshn.enums.StudentWorkingStatus).values()}"
+                                                                th:value="${studentWorkingStatus}"
+                                                                th:text="${studentWorkingStatus.value}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Select a Group</label>
+                                                    <select th:field="*{group}" class="custom-select" required="required">
+                                                        <option th:value="''" th:text="Select"></option>
+                                                        <option th:each="group : ${groups}" th:value="${group.groupId}" th:text="${group.groupName}"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label>Student Status</label>
+                                                    <select th:field="*{studentStatus}" class="custom-select" required="required">
+                                                        <option th:text="Select" th:value="''"></option>
+                                                        <option th:each="studentStatus : ${T(com.smlsnnshn.enums.StudentStatus).values()}"
+                                                                th:value="${studentStatus}"
+                                                                th:text="${studentStatus.value}">
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-12">
+                                                <div class="float-right">
+                                                    <button type="submit" class="btn btn-success">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- ------------------------FORM END----------------------------- -->
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------------TABLE START----------------------------- -->
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="col-md-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    <h2 class="panel-title">Student List</h2>
+                                </header>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Phone</th>
+                                                <th scope="col">Gender</th>
+                                                <th scope="col">Birthday</th>
+                                                <th scope="col">Country</th>
+                                                <th scope="col">Working Status</th>
+                                                <th scope="col">Group Number</th>
+                                                <th scope="col">Student Status</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="student : ${students}">
+                                                <td th:text="${student.firstName + ' ' + student.lastName}"></td>
+                                                <td th:text="${student.email}"></td>
+                                                <td th:text="${student.phone}"></td>
+                                                <td th:text="${student.gender.value}"></td>
+                                                <td th:text="${student.birthday}"></td>
+                                                <td th:text="${student.country.value}"></td>
+                                                <td th:text="${student.studentWorkingStatus.value}"></td>
+                                                <td th:text="${student.group.groupName}"></td>
+                                                <td th:text="${student.studentStatus.value}"></td>
+                                                <td class="actions">
+                                                    <a th:href="@{/student/showStudent/{id}(id=${student.email})}" class="btn btn-facebook rounded-0">Show</a>
+                                                    <a th:href="@{/student/updateStudent/{id}(id=${student.email})}"><button type="button" class="btn btn-warning btn-sm">Update</button></a>
+                                                    <a th:href="@{/student/deleteStudent/{id}(id=${student.email})}" class="delete-row"><button type="button" class="btn btn-secondary btn-sm">Delete</button></a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------------TABLE END----------------------------- -->
+            </div>
+        </div>
+    </div>
+    <div th:replace="/fragments/footer :: footer"></div>
+</div>
+
+<div th:replace="/fragments/javascript :: js"></div>
 
 </body>
 

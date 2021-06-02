@@ -1,4 +1,4 @@
-package com.smlsnnshn.entity;
+package com.smlsnnshn.dto;
 
 import com.smlsnnshn.enums.Country;
 import com.smlsnnshn.enums.Gender;
@@ -8,19 +8,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Where;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
-@Entity
-@Table(name = "students")
-@Where(clause="is_deleted=false")
-public class Student extends BaseEntity{
+public class StudentDTO {
+
+    private Long studentId;
 
     private String firstName;
     private String lastName;
@@ -28,22 +26,14 @@ public class Student extends BaseEntity{
     private String password;
     private String phone;
     private boolean enabled;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
 
-    @Enumerated(EnumType.STRING)
     private Country country;
-
-    @Enumerated(EnumType.STRING)
     private Gender gender;
-
-    @Enumerated(EnumType.STRING)
     private StudentWorkingStatus studentWorkingStatus;
-
-    @Enumerated(EnumType.STRING)
     private StudentStatus studentStatus;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "group_id")
-    private Group group;
+    private GroupDTO group;
 
 }

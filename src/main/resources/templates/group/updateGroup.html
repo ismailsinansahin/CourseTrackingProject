@@ -50,16 +50,24 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Select a Batch</label>
-                                                    <select th:field="*{batch}" class="custom-select" required="required">
-                                                        <option th:each="batch : ${batches}" th:value="${batch.batchId}" th:text="${batch.batchName}"></option>
+                                                    <select name="batch" class="custom-select" required="required">
+                                                        <option th:each="batch : ${batches}"
+                                                                th:value="${batch.batchId}"
+                                                                th:text="${batch.batchName}"
+                                                                th:selected="${batch.batchId} == *{batch.batchId}"
+                                                        ></option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Select a Mentor</label>
-                                                    <select th:field="*{mentor}" class="custom-select" required="required">
-                                                        <option th:each="mentor : ${mentors}" th:value="${mentor.mentorId}" th:text="${mentor.firstName+' '+mentor.lastName}"></option>
+                                                    <select name="mentor" class="custom-select" required="required">
+                                                        <option th:each="mentor : ${mentors}"
+                                                                th:value="${mentor.mentorId}"
+                                                                th:text="${mentor.firstName+' '+mentor.lastName}"
+                                                                th:selected="${mentor.mentorId} == *{mentor.mentorId}">
+                                                        </option>
                                                     </select>
                                                 </div>
                                             </div>

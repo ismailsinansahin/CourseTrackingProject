@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -40,5 +38,8 @@ public class Mentor extends BaseEntity{
 
     @Enumerated(EnumType.STRING)
     private MentorWorkingStatus mentorWorkingStatus;
+
+    @OneToMany(mappedBy = "mentor")
+    private List<Group> group;
 
 }
